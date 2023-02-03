@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="dns-prefetch" href="https://cdnstatic.ventusky.com">
+    <link rel="dns-prefetch" href="https://data.ventusky.com">
+    <link rel="dns-prefetch" href="https://api.ventusky.com">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- <meta name="apple-itunes-app" content="app-id=1280984498"> -->
+    <title>Ventusky - Wind, Rain and Temperature Maps</title>
+    <link rel=stylesheet href="https://cdnstatic.ventusky.com/media/style.css?1735746120">
+    <script>
+        document.addEventListener('gesturestart', function(e) {
+            e.preventDefault();
+        });
+    </script>
+    <meta name="description" content="Live wind, rain, radar or temperature maps, more than 50 weather layers, detailed forecast for your place, data from the best weather forecast models with high resolution">
+    <meta name="keywords" content="weather, forecast, maps, wind, temperature, precipitation, rain, cloud, pressure, CAPE">
+    <meta name="application-name" content="Ventusky">
+
+
+    <link rel="canonical" href="https://www.ventusky.com" />
+    <meta property="og:title" content="Ventusky - Weather Forecast Maps" />
+
+    <meta property="og:image" content="https://cdnstatic.ventusky.com/images/social-app.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Ventuskycom">
+    <meta name="twitter:title" content="Ventusky - Wind, Rain and Temperature Maps">
+    <meta name="twitter:description" content="Live wind, rain, radar or temperature maps, more than 50 weather layers, detailed forecast for your place, data from the best weather forecast models with high resolution">
+    <meta name="twitter:image" content="https://cdnstatic.ventusky.com/images/social-app.jpg">
+
+    <link rel="shortcut icon" href="https://cdnstatic.ventusky.com/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://cdnstatic.ventusky.com/images/apple-touch-icon-152x152.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+</head>
+
+<body>
+    <br />
+    <form id="header">
+        <h1><a href="https://www.ventusky.com/">Ventusky: Weather Forecast Maps</a></h1>
+        <label>
+            <input name="q" />
+        </label>
+        <ul>
+            <li class="progress"></li>
+        </ul>
+    </form>
+    <menu>
+        <li>
+            <a href="about" id="menu-about" class="button">About</a>
+        </li>
+    </menu>
+    <div id="no-js">
+        <ul>
+            <li>Temperature</li>
+            <li>Precipitation</li>
+            <li>Wind</li>
+            <li>Gust</li>
+            <li>Clouds</li>
+            <li>Air pressure</li>
+            <li>CAPE</li>
+            <li>Snow cover</li>
+            <li>Freezing level</li>
+        </ul>
+
+        Wind animation <br /> GFS, ICON, GEM
+
+    </div>
+
+    <div id="news" data-news="news-18" style="width: 250px;">
+        <a href="https://www.ventusky.com/webcam-173933274">
+	    <strong>Matterhorn in Alps live on new webcams</strong>
+	    <img src="https://cdnstatic.ventusky.com/images/promo/alpy.jpg" alt="Volcano">        
+      </a>
+    </div>
+
+
+    <script>
+        var MapOptions = {
+            "root": "https://www.ventusky.com/",
+            "lang": "en-us",
+            "lat": 35.6961,
+            "lon": 51.4231,
+            "zoom": 5,
+            "model": "auto",
+            "now": Date.UTC(2023, 1, 1, 19, 4),
+            "camTilesUpdated": 1670165220,
+
+            "icon-deTimelineStart": Date.UTC(2022, 0, 1, 0),
+            "icon-deTimelineEnd": Date.UTC(2023, 1, 3, 15),
+            "icon-deUpdated": Date.UTC(2023, 1, 1, 15, 0),
+            "icon-deAccumulationStart": Date.UTC(2023, 1, 1, 15),
+
+            "icon-waterTimelineStartTimelineStart": Date.UTC(2017, 6, 1, 0),
+            "icon-waterTimelineStartTimelineEnd": Date.UTC(2023, 1, 8, 12),
+            "icon-waterTimelineStartUpdated": Date.UTC(2023, 1, 1, 12, 0),
+
+            "icon-eu-waterTimelineStart": Date.UTC(2020, 1, 17, 0),
+            "icon-eu-waterTimelineEnd": Date.UTC(2023, 1, 4, 18),
+            "icon-eu-waterUpdated": Date.UTC(2023, 1, 1, 12, 0),
+
+            "gfsTimelineStart": Date.UTC(2018, 0, 1, 0),
+            "gfsTimelineEnd": Date.UTC(2023, 1, 15, 12),
+            "gfsUpdated": Date.UTC(2023, 1, 1, 12, 0),
+            "gfsAccumulationStart": Date.UTC(2023, 1, 1, 15),
+
+            "gemTimelineStart": Date.UTC(2022, 0, 1, 0),
+            "gemTimelineEnd": Date.UTC(2023, 1, 11, 0),
+            "gemUpdated": Date.UTC(2023, 1, 1, 12, 0),
+            "gemAccumulationStart": Date.UTC(2023, 1, 1, 15),
+
+            "hrrrTimelineStart": Date.UTC(2019, 0, 1, 0),
+            "hrrrTimelineEnd": Date.UTC(2023, 1, 3, 12),
+            "hrrrUpdated": Date.UTC(2023, 1, 1, 17, 0),
+            "hrrrAccumulationStart": Date.UTC(2023, 1, 1, 17),
+
+            "nbmTimelineStart": Date.UTC(2022, 0, 1, 0),
+            "nbmTimelineEnd": Date.UTC(2023, 1, 3, 4),
+            "nbmUpdated": Date.UTC(2023, 1, 1, 17, 0),
+
+            "euradTimelineStart": Date.UTC(2019, 0, 1, 0),
+            "euradTimelineEnd": Date.UTC(2023, 1, 1, 19),
+            "euradUpdated": Date.UTC(2023, 1, 1, 20, 23),
+
+            "usradTimelineStart": Date.UTC(2019, 0, 1, 0),
+            "usradTimelineEnd": Date.UTC(2023, 1, 1, 19),
+            "usradUpdated": Date.UTC(2023, 1, 1, 20, 20),
+
+            "woradTimelineStart": Date.UTC(2019, 0, 1, 0),
+            "woradTimelineEnd": Date.UTC(2023, 1, 1, 18),
+            "woradUpdated": Date.UTC(2023, 1, 1, 20, 23),
+
+            "silamTimelineStart": Date.UTC(2020, 1, 15, 0),
+            "silamTimelineEnd": Date.UTC(2023, 1, 5, 0),
+            "silamUpdated": Date.UTC(2023, 1, 1, 0, 0),
+
+            "silam-euTimelineStart": Date.UTC(2020, 1, 15, 0),
+            "silam-euTimelineEnd": Date.UTC(2023, 1, 6, 0),
+            "silam-euUpdated": Date.UTC(2023, 1, 1, 3, 0),
+
+            "goesTimelineStart": Date.UTC(2020, 4, 1, 1),
+            "goesTimelineEnd": Date.UTC(2023, 1, 1, 18),
+            "goesUpdated": Date.UTC(2023, 1, 1, 18, 50),
+
+            "rtofsTimelineStart": Date.UTC(2021, 5, 28, 0),
+            "rtofsTimelineEnd": Date.UTC(2023, 1, 9, 0),
+            "rtofsUpdated": Date.UTC(2023, 1, 1, 0, 0),
+
+            "ovationTimelineStart": Date.UTC(2021, 3, 1, 0),
+            "ovationTimelineEnd": Date.UTC(2023, 1, 1, 19),
+            "ovationUpdated": Date.UTC(2023, 1, 1, 19, 0),
+
+            "aromeTimelineStart": Date.UTC(2022, 3, 26, 0),
+            "aromeTimelineEnd": Date.UTC(2023, 1, 3, 6),
+            "aromeUpdated": Date.UTC(2023, 1, 1, 12, 0),
+            "aromeAccumulationStart": Date.UTC(2023, 1, 1, 12),
+
+
+            "ukmoTimelineStart": Date.UTC(2022, 4, 24, 0),
+            "ukmoTimelineEnd": Date.UTC(2023, 1, 2, 12),
+            "ukmoUpdated": Date.UTC(2023, 1, 1, 12, 0),
+
+            "ukmo-ukTimelineStart": Date.UTC(2022, 4, 24, 0),
+            "ukmo-ukTimelineEnd": Date.UTC(2023, 1, 2, 15),
+            "ukmo-ukUpdated": Date.UTC(2023, 1, 1, 16, 0),
+
+            "iconTimelineStart": Date.UTC(2018, 0, 1, 0),
+            "iconTimelineEnd": Date.UTC(2023, 1, 9, 0),
+            "iconUpdated": Date.UTC(2023, 1, 1, 12, 0),
+            "icon3hStart": Date.UTC(2023, 1, 4, 18),
+            "iconAccumulationStart": Date.UTC(2023, 1, 1, 12),
+
+            "icon-euTimelineStart": Date.UTC(2018, 10, 0, 0),
+            "icon-euTimelineEnd": Date.UTC(2023, 1, 6, 12),
+            "icon-euUpdated": Date.UTC(2023, 1, 1, 15, 0),
+            "icon-eu3hStart": Date.UTC(2023, 1, 4, 18),
+            "icon-euAccumulationStart": Date.UTC(2023, 1, 1, 15),
+
+            "ecmwf-lresTimelineStart": Date.UTC(2022, 3, 10, 0),
+            "ecmwf-lresTimelineEnd": Date.UTC(2023, 1, 11, 0),
+            "ecmwf-lresUpdated": Date.UTC(2023, 1, 1, 6, 0),
+            "ecmwf-lres6hStart": Date.UTC(2023, 1, 7, 0),
+            "ecmwf-lresAccumulationStart": Date.UTC(2023, 1, 1, 6),
+
+            "ecmwfTimelineStart": Date.UTC(1979, 5, 1, 0),
+            "ecmwfTimelineEnd": Date.UTC(2020, 9, 31, 21),
+            "ecmwfUpdated": Date.UTC(2021, 0, 29, 0, 0),
+
+            "hurricanesUpdated": Date.UTC(2023, 1, 1, 18, 40)
+        };
+    </script>
+
+    <script src="https://cdnstatic.ventusky.com/media/script-en-us.js?1735746120"></script>
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-851063-8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-851063-8', {
+            'cookie_domain': 'www.ventusky.com'
+        });
+    </script>
+
+</body>
+
+</html>
